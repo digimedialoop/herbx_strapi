@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "histories",
+  "info": {
+    "singularName": "history",
+    "pluralName": "histories",
+    "displayName": "Firmengeschichte"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "year": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "regex": "/^(199[0-9]|20[0-4][0-9]|2050)$/"
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
+    }
+  }
+}

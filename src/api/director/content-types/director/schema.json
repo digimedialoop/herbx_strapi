@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "directors",
+  "info": {
+    "singularName": "director",
+    "pluralName": "directors",
+    "displayName": "Regisseure"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    }
+  }
+}

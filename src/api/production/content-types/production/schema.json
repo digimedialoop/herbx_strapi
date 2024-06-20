@@ -1,0 +1,118 @@
+{
+  "kind": "collectionType",
+  "collectionName": "productions",
+  "info": {
+    "singularName": "production",
+    "pluralName": "productions",
+    "displayName": "Produktionen",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "originalTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "premiere": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "date"
+    },
+    "headerImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "cinemaPoster": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "trailer": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "videos"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "production": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::producer.producer"
+    },
+    "coproduction": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::producer.producer"
+    },
+    "director": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::director.director"
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks"
+    },
+    "link": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "customField",
+      "options": {
+        "pattern": "title"
+      },
+      "customField": "plugin::slug.slug"
+    }
+  }
+}
