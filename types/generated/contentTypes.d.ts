@@ -884,12 +884,57 @@ export interface ApiDirectorDirector extends Schema.CollectionType {
   };
 }
 
+export interface ApiFaqFaq extends Schema.CollectionType {
+  collectionName: 'faqs';
+  info: {
+    singularName: 'faq';
+    pluralName: 'faqs';
+    displayName: 'FAQs';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    question: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    answer: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::faq.faq',
+      'oneToMany',
+      'api::faq.faq'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiHistoryHistory extends Schema.CollectionType {
   collectionName: 'histories';
   info: {
     singularName: 'history';
     pluralName: 'histories';
     displayName: 'Firmengeschichte';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -905,6 +950,9 @@ export interface ApiHistoryHistory extends Schema.CollectionType {
         i18n: {
           localized: false;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 4;
       }>;
     description: Attribute.Text &
       Attribute.SetPluginOptions<{
@@ -1096,6 +1144,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::article.article': ApiArticleArticle;
       'api::director.director': ApiDirectorDirector;
+      'api::faq.faq': ApiFaqFaq;
       'api::history.history': ApiHistoryHistory;
       'api::producer.producer': ApiProducerProducer;
       'api::production.production': ApiProductionProduction;
