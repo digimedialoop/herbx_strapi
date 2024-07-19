@@ -984,6 +984,65 @@ export interface ApiHistoryHistory extends Schema.CollectionType {
   };
 }
 
+export interface ApiPrivacyPrivacy extends Schema.SingleType {
+  collectionName: 'privacies';
+  info: {
+    singularName: 'privacy';
+    pluralName: 'privacies';
+    displayName: 'Datenschutz';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Datenschutzerklaerung: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Haftung: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Impressumtext: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::privacy.privacy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::privacy.privacy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::privacy.privacy',
+      'oneToMany',
+      'api::privacy.privacy'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiProducerProducer extends Schema.CollectionType {
   collectionName: 'producers';
   info: {
@@ -1097,6 +1156,19 @@ export interface ApiProductionProduction extends Schema.CollectionType {
       > &
       Attribute.SetPluginOptions<{
         i18n: {
+          localized: true;
+        };
+      }>;
+    type: Attribute.Enumeration<['cinema', 'tv']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'cinema'>;
+    trailerPoster: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
           localized: false;
         };
       }>;
@@ -1146,6 +1218,7 @@ declare module '@strapi/types' {
       'api::director.director': ApiDirectorDirector;
       'api::faq.faq': ApiFaqFaq;
       'api::history.history': ApiHistoryHistory;
+      'api::privacy.privacy': ApiPrivacyPrivacy;
       'api::producer.producer': ApiProducerProducer;
       'api::production.production': ApiProductionProduction;
     }

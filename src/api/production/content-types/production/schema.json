@@ -105,7 +105,7 @@
     "link": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
       "type": "customField",
@@ -113,6 +113,32 @@
         "pattern": "title"
       },
       "customField": "plugin::slug.slug"
+    },
+    "type": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "cinema",
+        "tv"
+      ],
+      "default": "cinema"
+    },
+    "trailerPoster": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     }
   }
 }
