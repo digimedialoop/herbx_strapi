@@ -928,6 +928,38 @@ export interface ApiFaqFaq extends Schema.CollectionType {
   };
 }
 
+export interface ApiHeaderimgHeaderimg extends Schema.SingleType {
+  collectionName: 'headerimgs';
+  info: {
+    singularName: 'headerimg';
+    pluralName: 'headerimgs';
+    displayName: 'Bilder-Header';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    newsHeaderImage: Attribute.Component<'basics.header-images'>;
+    newsarchiveHeaderImage: Attribute.Component<'basics.header-images'>;
+    historyHeaderImages: Attribute.Component<'basics.header-images', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::headerimg.headerimg',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::headerimg.headerimg',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHistoryHistory extends Schema.CollectionType {
   collectionName: 'histories';
   info: {
@@ -1223,6 +1255,7 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::director.director': ApiDirectorDirector;
       'api::faq.faq': ApiFaqFaq;
+      'api::headerimg.headerimg': ApiHeaderimgHeaderimg;
       'api::history.history': ApiHistoryHistory;
       'api::privacy.privacy': ApiPrivacyPrivacy;
       'api::producer.producer': ApiProducerProducer;

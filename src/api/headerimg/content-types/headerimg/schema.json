@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "headerimgs",
+  "info": {
+    "singularName": "headerimg",
+    "pluralName": "headerimgs",
+    "displayName": "Bilder-Header",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "newsHeaderImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "basics.header-images"
+    },
+    "newsarchiveHeaderImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "basics.header-images"
+    },
+    "historyHeaderImages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "basics.header-images"
+    }
+  }
+}

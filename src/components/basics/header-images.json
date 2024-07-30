@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_basics_header_images",
+  "info": {
+    "displayName": "headerImages",
+    "icon": "chartPie",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
