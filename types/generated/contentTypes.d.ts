@@ -793,7 +793,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   info: {
     singularName: 'article';
     pluralName: 'articles';
-    displayName: 'News';
+    displayName: 'HBX_News';
     description: '';
   };
   options: {
@@ -858,7 +858,7 @@ export interface ApiDirectorDirector extends Schema.CollectionType {
   info: {
     singularName: 'director';
     pluralName: 'directors';
-    displayName: 'Regisseure';
+    displayName: 'HBX_Regisseure';
   };
   options: {
     draftAndPublish: true;
@@ -889,7 +889,7 @@ export interface ApiFaqFaq extends Schema.CollectionType {
   info: {
     singularName: 'faq';
     pluralName: 'faqs';
-    displayName: 'FAQs';
+    displayName: 'HBX_FAQs';
   };
   options: {
     draftAndPublish: true;
@@ -933,7 +933,7 @@ export interface ApiHeaderimgHeaderimg extends Schema.SingleType {
   info: {
     singularName: 'headerimg';
     pluralName: 'headerimgs';
-    displayName: 'Bilder-Header';
+    displayName: 'Header-Bilder';
     description: '';
   };
   options: {
@@ -943,6 +943,14 @@ export interface ApiHeaderimgHeaderimg extends Schema.SingleType {
     newsHeaderImage: Attribute.Component<'basics.header-images'>;
     newsarchiveHeaderImage: Attribute.Component<'basics.header-images'>;
     historyHeaderImages: Attribute.Component<'basics.header-images', true>;
+    MBH_homeSlider: Attribute.Component<'basics.header-images', true>;
+    MBH_BiografieSlider: Attribute.Component<'basics.header-images', true>;
+    MBH_BiografieFooterImage: Attribute.Component<'basics.header-images'>;
+    MBH_AuszeichnungenHeaderImage: Attribute.Component<'basics.header-images'>;
+    MBH_FilmografieHeaderImages: Attribute.Component<
+      'basics.header-images',
+      true
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -965,7 +973,7 @@ export interface ApiHistoryHistory extends Schema.CollectionType {
   info: {
     singularName: 'history';
     pluralName: 'histories';
-    displayName: 'Firmengeschichte';
+    displayName: 'HBX_Firmengeschichte';
     description: '';
   };
   options: {
@@ -1011,6 +1019,194 @@ export interface ApiHistoryHistory extends Schema.CollectionType {
       'api::history.history',
       'oneToMany',
       'api::history.history'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiMbhAwardMbhAward extends Schema.CollectionType {
+  collectionName: 'mbh_awards';
+  info: {
+    singularName: 'mbh-award';
+    pluralName: 'mbh-awards';
+    displayName: 'MBH_Auszeichnungen';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    year: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMax<
+        {
+          min: '1990';
+          max: '2060';
+        },
+        string
+      >;
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::mbh-award.mbh-award',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::mbh-award.mbh-award',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::mbh-award.mbh-award',
+      'oneToMany',
+      'api::mbh-award.mbh-award'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiMbhBiographyMbhBiography extends Schema.CollectionType {
+  collectionName: 'mbh_biographies';
+  info: {
+    singularName: 'mbh-biography';
+    pluralName: 'mbh-biographies';
+    displayName: 'MBH_Biografie';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    description: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::mbh-biography.mbh-biography',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::mbh-biography.mbh-biography',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::mbh-biography.mbh-biography',
+      'oneToMany',
+      'api::mbh-biography.mbh-biography'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiMbhFilmographyMbhFilmography extends Schema.CollectionType {
+  collectionName: 'mbh_filmographies';
+  info: {
+    singularName: 'mbh-filmography';
+    pluralName: 'mbh-filmographies';
+    displayName: 'MBH_Filmografie';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    year: Attribute.BigInteger &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMax<
+        {
+          min: '1990';
+          max: '2060';
+        },
+        string
+      >;
+    medium: Attribute.Enumeration<['TV', 'radio', 'cinema']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::mbh-filmography.mbh-filmography',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::mbh-filmography.mbh-filmography',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::mbh-filmography.mbh-filmography',
+      'oneToMany',
+      'api::mbh-filmography.mbh-filmography'
     >;
     locale: Attribute.String;
   };
@@ -1080,7 +1276,7 @@ export interface ApiProducerProducer extends Schema.CollectionType {
   info: {
     singularName: 'producer';
     pluralName: 'producers';
-    displayName: 'Produzenten';
+    displayName: 'HBX_Produzenten';
   };
   options: {
     draftAndPublish: true;
@@ -1110,7 +1306,7 @@ export interface ApiProductionProduction extends Schema.CollectionType {
   info: {
     singularName: 'production';
     pluralName: 'productions';
-    displayName: 'Produktionen';
+    displayName: 'HBX_Produktionen';
     description: '';
   };
   options: {
@@ -1257,6 +1453,9 @@ declare module '@strapi/types' {
       'api::faq.faq': ApiFaqFaq;
       'api::headerimg.headerimg': ApiHeaderimgHeaderimg;
       'api::history.history': ApiHistoryHistory;
+      'api::mbh-award.mbh-award': ApiMbhAwardMbhAward;
+      'api::mbh-biography.mbh-biography': ApiMbhBiographyMbhBiography;
+      'api::mbh-filmography.mbh-filmography': ApiMbhFilmographyMbhFilmography;
       'api::privacy.privacy': ApiPrivacyPrivacy;
       'api::producer.producer': ApiProducerProducer;
       'api::production.production': ApiProductionProduction;

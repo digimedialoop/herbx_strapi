@@ -4,7 +4,7 @@
   "info": {
     "singularName": "director",
     "pluralName": "directors",
-    "displayName": "Regisseure"
+    "displayName": "HBX_Regisseure"
   },
   "options": {
     "draftAndPublish": true

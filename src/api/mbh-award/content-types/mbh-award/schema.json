@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "histories",
+  "collectionName": "mbh_awards",
   "info": {
-    "singularName": "history",
-    "pluralName": "histories",
-    "displayName": "HBX_Firmengeschichte",
-    "description": ""
+    "singularName": "mbh-award",
+    "pluralName": "mbh-awards",
+    "displayName": "MBH_Auszeichnungen"
   },
   "options": {
     "draftAndPublish": true
@@ -22,8 +21,17 @@
           "localized": false
         }
       },
-      "type": "string",
-      "maxLength": 4
+      "type": "biginteger",
+      "min": "1990",
+      "max": "2060"
+    },
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     },
     "description": {
       "pluginOptions": {

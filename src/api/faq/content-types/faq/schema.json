@@ -4,7 +4,7 @@
   "info": {
     "singularName": "faq",
     "pluralName": "faqs",
-    "displayName": "FAQs"
+    "displayName": "HBX_FAQs"
   },
   "options": {
     "draftAndPublish": true

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "producer",
     "pluralName": "producers",
-    "displayName": "Produzenten"
+    "displayName": "HBX_Produzenten"
   },
   "options": {
     "draftAndPublish": true

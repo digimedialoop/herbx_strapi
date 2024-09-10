@@ -4,7 +4,7 @@
   "info": {
     "singularName": "headerimg",
     "pluralName": "headerimgs",
-    "displayName": "Bilder-Header",
+    "displayName": "Header-Bilder",
     "description": ""
   },
   "options": {
@@ -23,6 +23,31 @@
       "component": "basics.header-images"
     },
     "historyHeaderImages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "basics.header-images"
+    },
+    "MBH_homeSlider": {
+      "type": "component",
+      "repeatable": true,
+      "component": "basics.header-images"
+    },
+    "MBH_BiografieSlider": {
+      "type": "component",
+      "repeatable": true,
+      "component": "basics.header-images"
+    },
+    "MBH_BiografieFooterImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "basics.header-images"
+    },
+    "MBH_AuszeichnungenHeaderImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "basics.header-images"
+    },
+    "MBH_FilmografieHeaderImages": {
       "type": "component",
       "repeatable": true,
       "component": "basics.header-images"

@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "articles",
+  "collectionName": "mbh_filmographies",
   "info": {
-    "singularName": "article",
-    "pluralName": "articles",
-    "displayName": "HBX_News",
-    "description": ""
+    "singularName": "mbh-filmography",
+    "pluralName": "mbh-filmographies",
+    "displayName": "MBH_Filmografie"
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +15,30 @@
     }
   },
   "attributes": {
-    "headline": {
+    "year": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "biginteger",
+      "min": "1990",
+      "max": "2060"
+    },
+    "medium": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "TV",
+        "radio",
+        "cinema"
+      ]
+    },
+    "title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -24,30 +46,13 @@
       },
       "type": "string"
     },
-    "releasedate": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "date"
-    },
-    "article": {
+    "description": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "blocks"
-    },
-    "link": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string",
-      "regex": "/^[a-zA-Z0-9-]+$/"
+      "type": "text"
     }
   }
 }

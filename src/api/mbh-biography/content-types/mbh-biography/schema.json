@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "histories",
+  "collectionName": "mbh_biographies",
   "info": {
-    "singularName": "history",
-    "pluralName": "histories",
-    "displayName": "HBX_Firmengeschichte",
-    "description": ""
+    "singularName": "mbh-biography",
+    "pluralName": "mbh-biographies",
+    "displayName": "MBH_Biografie"
   },
   "options": {
     "draftAndPublish": true
@@ -16,14 +15,13 @@
     }
   },
   "attributes": {
-    "year": {
+    "title": {
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "type": "string",
-      "maxLength": 4
+      "type": "string"
     },
     "description": {
       "pluginOptions": {
@@ -31,7 +29,7 @@
           "localized": true
         }
       },
-      "type": "text"
+      "type": "blocks"
     }
   }
 }
