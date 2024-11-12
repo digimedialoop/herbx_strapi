@@ -940,7 +940,7 @@ export interface ApiHbxHomeHbxHome extends Schema.SingleType {
   };
   pluginOptions: {
     i18n: {
-      localized: true;
+      localized: false;
     };
   };
   attributes: {
@@ -964,12 +964,6 @@ export interface ApiHbxHomeHbxHome extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::hbx-home.hbx-home',
-      'oneToMany',
-      'api::hbx-home.hbx-home'
-    >;
-    locale: Attribute.String;
   };
 }
 
