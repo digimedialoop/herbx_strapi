@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "hbx_homes",
+  "info": {
+    "singularName": "hbx-home",
+    "pluralName": "hbx-homes",
+    "displayName": "HBX_Startseite"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "productions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::production.production"
+    }
+  }
+}

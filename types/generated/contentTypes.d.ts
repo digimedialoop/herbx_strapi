@@ -928,6 +928,51 @@ export interface ApiFaqFaq extends Schema.CollectionType {
   };
 }
 
+export interface ApiHbxHomeHbxHome extends Schema.SingleType {
+  collectionName: 'hbx_homes';
+  info: {
+    singularName: 'hbx-home';
+    pluralName: 'hbx-homes';
+    displayName: 'HBX_Startseite';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    productions: Attribute.Relation<
+      'api::hbx-home.hbx-home',
+      'oneToMany',
+      'api::production.production'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::hbx-home.hbx-home',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::hbx-home.hbx-home',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::hbx-home.hbx-home',
+      'oneToMany',
+      'api::hbx-home.hbx-home'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiHeaderimgHeaderimg extends Schema.SingleType {
   collectionName: 'headerimgs';
   info: {
@@ -1146,7 +1191,7 @@ export interface ApiMbhFilmographyMbhFilmography extends Schema.CollectionType {
   info: {
     singularName: 'mbh-filmography';
     pluralName: 'mbh-filmographies';
-    displayName: 'MBH_Filmografie';
+    displayName: 'MBH_Produktionen';
   };
   options: {
     draftAndPublish: true;
@@ -1451,6 +1496,7 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::director.director': ApiDirectorDirector;
       'api::faq.faq': ApiFaqFaq;
+      'api::hbx-home.hbx-home': ApiHbxHomeHbxHome;
       'api::headerimg.headerimg': ApiHeaderimgHeaderimg;
       'api::history.history': ApiHistoryHistory;
       'api::mbh-award.mbh-award': ApiMbhAwardMbhAward;
