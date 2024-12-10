@@ -53,11 +53,9 @@
       "component": "basics.header-images"
     },
     "contactHeaderImage": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
+      "type": "component",
+      "repeatable": false,
+      "component": "basics.header-images"
     }
   }
 }

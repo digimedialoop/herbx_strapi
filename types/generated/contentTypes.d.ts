@@ -990,7 +990,7 @@ export interface ApiHeaderimgHeaderimg extends Schema.SingleType {
       'basics.header-images',
       true
     >;
-    contactHeaderImage: Attribute.Media<'images'>;
+    contactHeaderImage: Attribute.Component<'basics.header-images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
