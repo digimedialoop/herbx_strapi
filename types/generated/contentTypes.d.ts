@@ -991,6 +991,8 @@ export interface ApiHeaderimgHeaderimg extends Schema.SingleType {
       true
     >;
     contactHeaderImage: Attribute.Component<'basics.header-images'>;
+    productionHeaderImage: Attribute.Component<'basics.header-images'>;
+    MBH_contactImage: Attribute.Component<'basics.header-images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

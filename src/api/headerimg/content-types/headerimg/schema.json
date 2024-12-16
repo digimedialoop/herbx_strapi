@@ -56,6 +56,16 @@
       "type": "component",
       "repeatable": false,
       "component": "basics.header-images"
+    },
+    "productionHeaderImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "basics.header-images"
+    },
+    "MBH_contactImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "basics.header-images"
     }
   }
 }
