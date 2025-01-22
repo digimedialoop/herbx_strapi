@@ -1289,6 +1289,12 @@ export interface ApiPrivacyPrivacy extends Schema.SingleType {
           localized: true;
         };
       }>;
+    MBH_ImpressumArea: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
